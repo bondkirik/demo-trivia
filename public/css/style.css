@@ -1,0 +1,127 @@
+@charset "UTF-8";
+
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+:focus, :active {
+    outline: none;
+}
+
+a:focus, a:active {
+    outline: none;
+}
+
+nav, footer, header, aside {
+    display: block;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    background-color: #009666;
+}
+
+input, button, textarea {
+    font-family: inherit;
+}
+
+input::-ms-clear {
+    display: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+a, a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+ul li {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+/*--------------------*/
+
+.wrapper .container{
+    max-width: 700px;
+    background-color: #FFFFFF;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 10px;
+    position: relative;
+}
+.trivia{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.trivia .question-text{
+    text-transform: uppercase;
+    color: #000000;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: center;
+    margin: 10px auto;
+}
+.trivia .option-container{
+    margin: 20px auto;
+    width: 100%;
+}
+.trivia .option-container .option{
+    width: 100%;
+    background-color: #CCC;
+    margin: 20px auto;
+    padding: 15px;
+    font-size: 15px;
+    line-height: 22px;
+    color: #000;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.trivia .option-container .option.active{
+    background-color: orange;
+}
+
+.next-question-btn .btn{
+    padding: 15px 45px;
+    background-color: forestgreen;
+    color: #FFF;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
