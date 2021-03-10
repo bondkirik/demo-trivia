@@ -14,11 +14,8 @@
             <b id="q_number">1</b>
         </div>
         <div class="trivia">
-            <div class="question-text" id="question">text</div>
+            <div class="question-text" id="question"></div>
             <div class="option-container" id="result">
-                <div class="option">1</div>
-                <div class="option">2</div>
-                <div class="option">3</div>
             </div>
             <div class="next-question-btn">
                 <button id="btn" type="button" class="btn">SUBMIT</button>
