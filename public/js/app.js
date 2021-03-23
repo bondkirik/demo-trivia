@@ -1,14 +1,16 @@
 window.onload = sendApiRequest;
 
 const btn = document.getElementById("btn");
-const result = document.querySelector('#result');
-const question = document.querySelector('#question');
-var q_number = document.getElementById("q_number");
+const result = document.getElementById('result');
+const question = document.getElementById('question');
+const q_block = document.getElementById('q_block');
+var q_number = document.getElementById('q_number');
 
-const MAX_QUESTIONS = 1;
+const MAX_QUESTIONS = 20;
 const MAX = 9999;
 const range = 10;
 const answers_check = [];
+const correct_answer = [];
 
 const server = `http://numbersapi.com/random/trivia?json&fragment&min=1&max=`+MAX;
 
@@ -70,6 +72,23 @@ async function sendApiRequest(event) {
             result.innerHTML = inner;
 
             answers_check.push(output.number);
+            correct_answer.push(output.number);
+
+            /**
+             * add active to click on answer
+             * @type {NodeListOf<Element>}
+             */
+
+            let options = document.querySelectorAll(".option");
+            let class_name = "active";
+            options.forEach(function (option) {
+                option.addEventListener('click', function (){
+                    options.forEach(function (elem) {
+                        elem.classList.remove(class_name);
+                    });
+                    option.classList.add(class_name);
+                });
+            });
 
         }
     })
@@ -79,7 +98,41 @@ async function sendApiRequest(event) {
         });
 }
 
-btn.addEventListener("click", sendApiRequest);
+/**
+ *
+ */
+function showResult(){
+    let opt = document.querySelector('.active');
+    let selected = opt.classList.contains('active');
+    if (selected){
+        if(correct_answer[0] == opt.innerText){
+            correct_answer.pop();
+            var q_count = parseInt(q_number.innerText) +1;
+            q_number.innerHTML = q_count;
+            if (q_count == MAX_QUESTIONS){
+                showEnd(`congratulations!!!`);
+            }else {
+                sendApiRequest(event);
+            }
+        }else {
+            showEnd(`WRONG ANSWER`);
+        }
+    }
+}
+
+/**
+ * show end result
+ * @param str
+ */
+function showEnd(str ){
+    question.innerHTML = str;
+    btn.remove();
+    result.remove();
+    q_block.remove();
+}
+
+
+btn.addEventListener("click", showResult);
 
 
 /**

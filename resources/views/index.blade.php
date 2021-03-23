@@ -9,7 +9,7 @@
 <body>
 <div class="wrapper">
     <div class="container">
-        <div class="q-count">
+        <div id="q_block" class="q-count">
             <span>Q:</span>
             <b id="q_number">1</b>
         </div>
